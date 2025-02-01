@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Detector</title>
+</head>
+<body>
+    <h1>Phishing Website Detector</h1>
+    <form action="/predict" method="post">
+        <label for="url_length">URL Length:</label>
+        <input type="text" name="url_length" required><br>
+        <label for="special_chars">Special Characters:</label>
+        <input type="text" name="special_chars" required><br>
+        <!-- Add more input fields for other features -->
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
