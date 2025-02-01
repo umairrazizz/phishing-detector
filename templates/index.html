@@ -1,20 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phishing Detector</title>
+    <style>
+        @keyframes fadeIn {
+                          from { opacity: 0; transform: translateY(-20px); }
+                          to { opacity: 1; transform: translateY(0); }
+          }
+
+        .container {
+                    animation: fadeIn 1s ease-out;
+          }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #00ffcc;
+        }
+        label {
+            display: block;
+            margin: 1rem 0 0.5rem;
+            font-size: 1rem;
+            color: #00ffcc;
+        }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1rem;
+        }
+        input::placeholder {
+            color: #ccc;
+        }
+        button {
+            background: #00ffcc;
+            color: #1a1a1a;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #00e6b8;
+        }
+        .prediction {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            color: #00ffcc;
+        }
+    </style>
 </head>
 <body>
-    <h1>Phishing Website Detector</h1>
-    <form action="/predict" method="post">
-        <label for="url_length">URL Length:</label>
-        <input type="text" name="url_length" required><br>
-        <label for="special_chars">Special Characters:</label>
-        <input type="text" name="special_chars" required><br>
-        <!-- Add more input fields for other features -->
-        <button type="submit">Predict</button>
-    </form>
-    {% if prediction_text %}
-    <h2>{{ prediction_text }}</h2>
-    {% endif %}
+    <div class="container">
+        <h1>Phishing Detector</h1>
+        <form action="/predict" method="post">
+            <label for="url_length">URL Length:</label>
+            <input type="text" name="url_length" placeholder="Enter URL length" required>
+            <label for="special_chars">Special Characters:</label>
+            <input type="text" name="special_chars" placeholder="Enter special characters count" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+        <div class="prediction">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
 </body>
 </html>
