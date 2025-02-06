@@ -1,60 +1,75 @@
-# phishing-detector
 # Phishing Website Detector
 
-## Project Overview
-This project is an AI-powered phishing website detection system. It uses machine learning to analyze website features (e.g., URL length, special characters) and classify them as either **phishing** or **legitimate**. The system is built using Python, Flask, and Scikit-learn, and it is deployed as a web application.
+## Overview
+Phishing attacks are a significant cybersecurity threat. This project aims to detect phishing websites using machine learning. It analyzes website features such as URL length, presence of special characters, and other key indicators to classify sites as **phishing** or **legitimate**.
 
 ## Features
-- **Machine Learning Model**: Trained on a dataset of phishing and legitimate websites.
-- **Web Interface**: Users can input website features and get real-time predictions.
-- **Deployment**: The app is deployed on [Render](https://phishing-detector-08ut.onrender.com) and accessible via a public URL.
+- **AI-Powered Detection**: Uses a trained machine learning model for classification.
+- **User-Friendly Web Interface**: Enter website details and get real-time predictions.
+- **Deployment**: Hosted on [Render](https://phishing-detector-08ut.onrender.com) for public access.
 
 ## Installation
-To run this project locally, follow these steps:
+Follow these steps to run the project locally:
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/phishing-detector.git
-   cd phishing-detector
-2. **Install Dependencies**:
-  ```bash
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/phishing-detector.git
+cd phishing-detector
+```
+
+### 2. Install Dependencies
+```bash
 pip install -r requirements.txt
-3. **Run the Flask App**
-   ```bash
+```
+
+### 3. Run the Flask App
+```bash
 python app.py
-4. **Access the App:**
-  Open your browser and go to http://127.0.0.1:5000/
-5. **Usage**
-Input Features:
-   Enter the website features (e.g., URL length, special characters) in the web interface.
-**Get Predictions**:
-   Click the Predict button to see if the website is classified as phishing or legitimate.
-File Structure
+```
+
+### 4. Access the Application
+Open your browser and navigate to:
+```
+http://127.0.0.1:5000/
+```
+
+## Usage
+1. **Enter Website Features**: Input details such as URL length and special characters.
+2. **Get Prediction**: Click the **Predict** button to classify the website as phishing or legitimate.
+
+## File Structure
+```
 phishing-detector/
 │
 ├── app.py                  # Flask application
-├── requirements.txt        # Dependencies
-├── Procfile                # Render configuration (optional)
+├── requirements.txt        # Project dependencies
+├── Procfile                # Deployment configuration (optional)
 ├── phishing_model.pkl      # Trained machine learning model
-├── X.csv                   # Preprocessed features
-├── y.csv                   # Preprocessed target
-├── load_data.py            # Script to load and clean the dataset
+├── X.csv                   # Preprocessed feature dataset
+├── y.csv                   # Preprocessed target dataset
+├── load_data.py            # Script to load and clean data
 ├── preprocess_data.py      # Script to preprocess the data
-├── train_model.py          # Script to train the machine learning model
-└── templates/              # Folder for HTML templates
-    └── index.html          # Web interface
+├── train_model.py          # Script to train the model
+└── templates/              # HTML templates for the web interface
+    └── index.html
+```
 
-**Dependencies**
+## Dependencies
 The project requires the following Python libraries:
-Flask
-Pandas
-Scikit-learn
-Joblib
-Gunicorn
-All dependencies are listed in requirements.txt.
-**Contributing**
-Contributions are welcome! If you'd like to contribute, please follow these steps:
-1)Fork the repository.
-2)Create a new branch for your feature or bugfix.
-3)Commit your changes.
-4)Submit a pull request.
+- **Flask** - Web framework
+- **Pandas** - Data manipulation
+- **Scikit-learn** - Machine learning algorithms
+- **Joblib** - Model serialization
+- **Gunicorn** - WSGI server for deployment
+
+All dependencies are listed in `requirements.txt`.
+
+## Contributing
+Contributions are welcome! To contribute:
+1. **Fork** the repository.
+2. **Create a new branch** for your feature or bug fix.
+3. **Commit** your changes.
+4. **Submit a pull request** for review.
+
+## License
+This project is open-source and available under the [MIT License](LICENSE).
